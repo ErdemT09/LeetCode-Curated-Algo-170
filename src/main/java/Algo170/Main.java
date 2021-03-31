@@ -15,7 +15,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(CountingElements.Solution(new int[]{1,1,1,1,2,3,3,2}));
+        System.out.println(CountingElements.SolutionB(new int[]{4,1,5,1,1,1,2,6,3,3,2}));
         /* Sample inputs:
          Armstrong Number: ArmstrongNumber.Solution(153) == true
         
