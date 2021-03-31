@@ -12,8 +12,8 @@ package Algo170;
 public class ClosestBinarySearchTreeValue {
     public static class TreeNode{
         int val;
-        TreeNode left;
-        TreeNode right;
+        TreeNode left = null;
+        TreeNode right = null;
         
         public TreeNode(int v) {
             val = v;
@@ -25,39 +25,35 @@ public class ClosestBinarySearchTreeValue {
         }
         
     }
+ 
     public static int Solution(float target, TreeNode tn)
     {
-        if (tn.left == null && tn.right == null) {
-            return tn.val;
+        int currentBest = tn.val;
+        if(tn.left != null && target < currentBest)
+        {
+            currentBest = SolutionHelper(target, currentBest, tn.left);
         }
-        
-        TreeNode bestNode = tn;
-        boolean _continue = true;
-        while (_continue) {            
-            if (target > bestNode.val && bestNode.right != null) {
-                if (Math.abs(target - bestNode.right.val) < Math.abs(target - bestNode.val) ) {
-                    bestNode = bestNode.right;
-                }
-                else
-                {
-                    _continue = false;
-                }
-            }
-            else if (target < bestNode.val && bestNode.left != null) {
-                if (Math.abs(target - bestNode.left.val) < Math.abs(target - bestNode.val) ) {
-                    bestNode = bestNode.left;
-                }
-                else
-                {
-                    _continue = false;
-                }
-            }
-            else
-            {
-                _continue = false;
-            }
+        else if(tn.right != null && target > currentBest)
+        {
+            currentBest = SolutionHelper(target, currentBest, tn.right);
         }
-        return bestNode.val;
+        return currentBest;
+    }
+    public static int SolutionHelper(float target, int currentBest, TreeNode tn)
+    {
+        if (Math.abs(target - tn.val) < Math.abs(currentBest - target)) {
+            currentBest = tn.val;
+        }
+              if(tn.left != null && target < tn.val)
+        {
+            currentBest = SolutionHelper(target, currentBest, tn.left);
+        }
+        else if(tn.right != null && target > tn.val)
+        {
+            currentBest = SolutionHelper(target, currentBest, tn.right);
+        }
+              System.out.println(currentBest + " " + tn.val);
+              return currentBest;
     }
     
     public static TreeNode SortedArrayToTreeConverter(int[] arr)
