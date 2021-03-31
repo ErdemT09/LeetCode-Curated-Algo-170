@@ -15,7 +15,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(ConfusingNumber.Solution(999962));
+        System.out.println(CountSubstringsWithOnlyOneDistinctLetter.Solution("aaaba"));
         /* Sample inputs:
          Armstrong Number: ArmstrongNumber.Solution(153) == true
         
