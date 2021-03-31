@@ -15,7 +15,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(CountingElements.SolutionB(new int[]{4,1,5,1,1,1,2,6,3,3,2}));
+        Problem1474.ListNode head =  Problem1474.ArrayToListNode(new int[] {1,2,3,4,5,6,7,8,9, 10, 11, 12, 13, 14, 15, 16});
+        
+        
+        head = Problem1474.Solution(head, 3, 1);
+        while (head != null) {            
+            System.out.println(head.val);
+            head = head.next;
+        }
         /* Sample inputs:
          Armstrong Number: ArmstrongNumber.Solution(153) == true
         
