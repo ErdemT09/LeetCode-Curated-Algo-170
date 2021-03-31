@@ -22,27 +22,26 @@ public class Problem1474 {
       public static ListNode Solution(ListNode head, int m, int n)
       {
           ListNode temp = head;
-          int timesToSkip = m-1;
-          int timesToPass = 0;
-          while (temp != null) {              
-              while (timesToSkip > 0) {
+          while (temp != null) { 
+              int controlNumber = m-1;
+              while (controlNumber > 0) {
                   if (temp.next != null) {
                       temp = temp.next;
-                      timesToSkip--;
+                      controlNumber--;
                   }
                   else
                   {
                       return head;
                   }
               }
-              timesToPass = n;
-              while (timesToPass > 0) {                  
+              controlNumber = n;
+              while (controlNumber > 0) {                  
                   if (temp.next != null && temp.next.next != null) {
                     temp.next = temp.next.next;    
                   }
-                  timesToPass--;
+                  // return else ? 
+                  controlNumber--;
               }
-              timesToSkip = m-1;
               temp = temp.next;
           }
           return  head;
