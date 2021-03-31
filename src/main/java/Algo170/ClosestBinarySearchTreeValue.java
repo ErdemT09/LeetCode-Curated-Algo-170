@@ -52,7 +52,7 @@ public class ClosestBinarySearchTreeValue {
         {
             currentBest = SolutionHelper(target, currentBest, tn.right);
         }
-              System.out.println(currentBest + " " + tn.val);
+              
               return currentBest;
     }
     
