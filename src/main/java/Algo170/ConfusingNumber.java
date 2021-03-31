@@ -23,7 +23,7 @@ public class ConfusingNumber {
             if (digit == 6 || digit == 9) {
                 ret = true;
             }
-            else if (digit == 1 || digit == 8) { 
+            else if (digit == 1 || digit == 8 || digit == 0) { 
                 //
             }
             else
